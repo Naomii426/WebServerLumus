@@ -19,6 +19,7 @@ export default class ProductStore{     //глобавльное хранилиц
             {id: 13, name: 'Standart', price: 1990, img:'469c2528-fe07-4bfd-a5e6-8e221e84155d.jpg'},
             {id: 14, name: 'Postcard', price: 790, img:'374399c7-0c77-4372-a3e3-f6ef33c02a42.jpg'},
         ]
+        this._selectedType = {}
         makeAutoObservable(this)    //функция следит за изменением этих переменных и при их изменении компоненты будут перерендириваться
     }
 
@@ -31,6 +32,9 @@ export default class ProductStore{     //глобавльное хранилиц
     setProduct(product){            //создам экшены, в данном случае это функции, которые как то изменяют состояние
         this.product = product
     }
+    setSelectedType(type){
+        this._selectedType = type
+    }
 
     get types(){               //создадим геттеры, они нужны чтобы получать значения из состояний
         return this._types
@@ -41,5 +45,8 @@ export default class ProductStore{     //глобавльное хранилиц
     }
     get product(){               //создадим геттеры, они нужны чтобы получать значения из состояний
         return this._products
+    }
+    get selectedType(){
+        return this._selectedType
     }
 }
