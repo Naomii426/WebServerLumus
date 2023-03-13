@@ -25,7 +25,7 @@ const start = async ()=>{
    try {
           await sequelize.authenticate()       //асинхронная функция для установки соединения с БД
           await sequelize.sync()              //асинхронная функция, которая сверяет состояние БД со схемой БД
-          app.listen(PORT,"192.168.1.232",() => console.log(`Server started on port ${PORT}`))
+          app.listen(PORT,"localhost",() => console.log(`Server started on port ${PORT}`))
    }catch (e) {
           console.log(e)
  }

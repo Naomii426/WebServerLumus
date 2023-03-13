@@ -3,8 +3,9 @@ import {Routes, Route, Navigate} from "react-router-dom";
 import {authRoutes, publicRoutes} from "../routes";
 import {SHOP_ROUTES} from "../utils/consts";
 import {Context} from "../index";
+import {observer} from "mobx-react-lite";
 
-const AppRouter = () => {
+const AppRouter = observer(() => {
     const {user} = useContext(Context)
 
     return (
@@ -18,6 +19,6 @@ const AppRouter = () => {
                  <Route path = "*" element={<Navigate to={SHOP_ROUTES}/>}/>             //Добавим навигацию на начальную страницу при вводе некорректного url
         </Routes>
     );
-};
+});
 
 export default AppRouter;
