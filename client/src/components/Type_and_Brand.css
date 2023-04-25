@@ -1,0 +1,23 @@
+
+.brandbar{
+    background-color: #F8F4FF;
+    border: 0px;
+    color: black;
+    font-family: Next;
+    transition: 1s;
+
+}
+.brandbar:hover{
+    transform: scale(1.2);
+}
+.typebar{
+    background-color: #F8F4FF;
+    border: 0px;
+    color: black;
+    font-family: Next;
+    font-size: 16px;
+    transition: 1s;
+}
+.typebar:hover{
+    transform: scale(1.2)
+}

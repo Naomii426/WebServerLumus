@@ -54,6 +54,8 @@ const Auth = observer(() => {
                         value={password}
                         onChange={e => setPassword(e.target.value)}
                         type="password"
+
+
                     />
                     <Form className='d-flex justify-content-between mt-3 px-lg-1 '>
                         {isLogin ?

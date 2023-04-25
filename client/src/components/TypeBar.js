@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
 import {ListGroup} from "react-bootstrap";
+import "./Type_and_Brand.css"
 
 const TypeBar = observer(() => {        //обернем все в observer, чтобы отслеживать состояние
     const {product} = useContext(Context)
@@ -11,6 +12,7 @@ const TypeBar = observer(() => {        //обернем все в observer, ч�
                 <ListGroup.Item
                     style={{cursor: 'pointer'}}
                     active={type.id === product.selectedType.id}
+                    className="typebar mt-2"
                     onClick={() => product.setSelectedType(type)}
                     key={type.id}
                 >

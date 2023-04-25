@@ -1,0 +1,8 @@
+.cardproduct{
+    background-color: #F8F4FF;
+    font-family: Next;
+    transition: 1s;
+}
+.cardproduct:hover{
+    transform: scale(1.1);
+}

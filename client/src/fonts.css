@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Jasmium';
+    src: url('./fonts/Jasminum.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Sreda';
+    src: url('./fonts/Sreda.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Vinique';
+    src: url('./fonts/vinque rg.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Felidae';
+    src: url('./fonts/Felidae.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mustica';
+    src: url('./fonts/Mustica.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Next';
+    src: url('./fonts/NEXT ART_Regular.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

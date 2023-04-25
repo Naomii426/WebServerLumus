@@ -1,12 +1,12 @@
 import {BrowserRouter} from "react-router-dom";
 import AppRouter from "./components/AppRouter";
-import {Navbar, Spinner} from "react-bootstrap";
+import {Spinner} from "react-bootstrap";
 import NavBar from "./components/NavBar";
 import {observer} from "mobx-react-lite";
 import {useContext, useEffect, useState} from "react";
 import {Context} from "./index";
 import {check} from "./http/userApi";
-import data from "bootstrap/js/src/dom/data";
+
 
 const App = observer(() =>{
     const {user} = useContext(Context)
@@ -21,7 +21,7 @@ const App = observer(() =>{
         },1000)
     },[])
     if(loading){
-        return <Spinner animation={"grow"}/>
+        return <Spinner animation={"grow"} className='d-flex justify-content-center'/>
     }
 
   return (
