@@ -1,9 +1,20 @@
 import Admin from "./pages/Admin";
-import {ADMIN_ROUTES, BASKET_ROUTES, PRODUCT_ROUTES, REGISTRATION_ROUTES,SHOP_ROUTES,LOGIN_ROUTES} from "./utils/consts";
+import {
+    ADMIN_ROUTES,
+    BASKET_ROUTES,
+    PRODUCT_ROUTES,
+    REGISTRATION_ROUTES,
+    SHOP_ROUTES,
+    LOGIN_ROUTES,
+    ORDER_ROUTE,
+    MYORDER_ROUTE
+} from "./utils/consts";
 import Basket from "./pages/Basket";
 import Shop from "./pages/Shop";
 import Auth from "./pages/Auth";
 import ProductPage from "./pages/ProductPage";
+import Order from "./pages/Order";
+import MyOrder from './pages/MyOrder'
 
 export const authRoutes = [                     //создадим два массива хранящие определенно-доступные маршруты
     {
@@ -32,5 +43,14 @@ export const publicRoutes = [
     {
         path: PRODUCT_ROUTES + '/:id',
         Component: ProductPage
+    },
+    {
+        path: ORDER_ROUTE,
+        Component: Order
+    },
+    {
+        path:MYORDER_ROUTE,
+        Component:MyOrder
     }
+
 ]

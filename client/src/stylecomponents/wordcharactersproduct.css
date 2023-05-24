@@ -1,0 +1,60 @@
+.fontcharacter{
+    font-family: Next;
+}
+.fontcharacterv2{
+    font-family: Sylfaen;
+}
+.fontcharacterv3{
+    font-family: Next;
+    font-size: 20px;
+}
+.fontcharacterv4{
+    font-family: Next;
+    font-size: 30px;
+}
+.bgcardbasket{
+    background-color: #F8F4FF;
+    border: none;
+}
+.butsendorder{
+    background-color: #F8F4FF;
+    font-family: Next;
+    font-size: 25px;
+    transition: 1s;
+    color: black;
+    border: none;
+}
+.butsendorder:hover{
+    transform: scale(1.1);
+    background-color: #F8F4FF;
+    color: black;
+}
+.butdeleteproduct{
+    background-color: white;
+    font-family: Next;
+    font-size: 50px;
+    margin-top: 15px;
+    margin-right: 10px;
+    transition: 1s;
+    color: black;
+    border: none;
+}
+.butdeleteproduct:hover{
+    transform: scale(1.5);
+    background-color: white;
+    color: black;
+}
+.butsendorderv2{
+    background-color: white;
+    font-family: Next;
+    font-size: 25px;
+    margin-left: 1000px;
+    transition: 1s;
+    color: black;
+    border: none;
+}
+.butsendorderv2:hover{
+    transform: scale(1.1);
+    background-color: white;
+    color: black;
+}

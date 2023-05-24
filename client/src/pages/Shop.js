@@ -15,18 +15,12 @@ const Shop = observer(() => {
     useEffect(()=>{
         fetchTypes().then(data => product.setTypes(data))
         fetchBrands().then(data => product.setBrands(data))
-        fetchProducts(null, null,1,12).then(data => {
+        fetchProducts(product.selectedType.id, product.selectedBrand.id,product.page,product.limit).then(data => {
             product.setProducts(data.rows)
             product.setTotalCount(data.count)
         })
-    },[])
+    },[product.selectedType.id, product.selectedBrand.id,product.page,product.limit])
 
-    useEffect(()=>{
-        fetchProducts(product.selectedType.id, product.selectedBrand.id,product.page,12).then(data => {
-            product.setProducts(data.rows)
-            product.setTotalCount(data.count)
-        })
-    },[product.page, product.selectedType, product.selectedBrand])
     return (
         <Container >
             <Row className='mt-2'>

@@ -4,8 +4,9 @@ import {LOGIN_ROUTES, REGISTRATION_ROUTES, SHOP_ROUTES} from "../utils/consts";
 import {Link, useLocation} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
 import {login, registration} from "../http/userApi";
-import {observer} from "mobx-react-lite";
+import {observer} from "mobx-react";
 import {Context} from "../index";
+
 
 const Auth = observer(() => {
     const {user} = useContext(Context)
@@ -25,6 +26,9 @@ const Auth = observer(() => {
             }
             user.setUser(data)
             user.setIsAuth(true)
+            if (email === "admin@bk.ru"){
+                user.setIsAdmin(true)
+            }
             navigate(SHOP_ROUTES)
         }catch (e) {
             alert(e.response.data.message)

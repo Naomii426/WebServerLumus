@@ -9,7 +9,7 @@ module.exports = function(req, res, next) {
         if(!token){
             return res.status(401).json({message: "Пользователь не авторизирован"})
         }
-        const decode = jwt.verify(token,process.env.SECRET_KEY)
+        const decode = jwt.verify(token, process.env.SECRET_KEY)
         req.user = decode
         next()
     }catch (e) {

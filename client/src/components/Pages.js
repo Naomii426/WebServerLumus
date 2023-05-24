@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {observer} from "mobx-react-lite";
+import {observer} from "mobx-react";
 import {Context} from "../index";
 import {Pagination} from "react-bootstrap";
 

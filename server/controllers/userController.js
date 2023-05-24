@@ -44,8 +44,10 @@ class UserController{
     }
 
     async check(req,res,next){                      //функция проверки авторизирован ли пользователь
+        if(req){
         const token = generateJwt(req.user.id, req.user.email, req.user.role)
-        return res.json({token})
+        return res.json(token)}
+        else return req.user.role
     }
 }
 

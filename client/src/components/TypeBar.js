@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
-import {observer} from "mobx-react-lite";
+import {observer} from "mobx-react";
 import {Context} from "../index";
 import {ListGroup} from "react-bootstrap";
-import "./Type_and_Brand.css"
+import "../stylecomponents/Type_and_Brand.css"
 
 const TypeBar = observer(() => {        //обернем все в observer, чтобы отслеживать состояние
     const {product} = useContext(Context)

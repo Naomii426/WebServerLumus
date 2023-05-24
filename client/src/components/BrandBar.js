@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
-import {observer} from "mobx-react-lite";
+import {observer} from "mobx-react";
 import {Card, Form} from "react-bootstrap";
 import {Context} from "../index";
-import "./Type_and_Brand.css";
+import "../stylecomponents/Type_and_Brand.css";
 import "../fonts.css"
 
 const BrandBar = observer(() => {

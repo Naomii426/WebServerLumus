@@ -1,11 +1,13 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {Button, Col, Dropdown, Form, Modal, Row} from "react-bootstrap";
 import {Context} from "../../index";
-import {createProduct, fetchBrands, fetchProducts, fetchTypes} from "../../http/productApi";
+import {createProduct, fetchBrands, fetchLegal,fetchTypes} from "../../http/productApi";
 import {observer} from "mobx-react-lite";
 
 const CreateProduct = observer((props) => {
     const [name, setName] = useState('')
+    const [country, setCountry] = useState('')
+    const [amount, setAmount] = useState(1)
     const [price, setPrice] = useState(0)
     const [file, setFile] = useState(null)
     const{product}=useContext(Context)
@@ -14,6 +16,7 @@ const CreateProduct = observer((props) => {
     useEffect(()=>{
         fetchTypes().then(data => product.setTypes(data))
         fetchBrands().then(data => product.setBrands(data))
+        fetchLegal().then(data => product.setLegals(data))
     },[])
 
     const addInfo = () =>{
@@ -32,15 +35,23 @@ const CreateProduct = observer((props) => {
     }
 
     const addProduct = () =>{
-        const formData = new FormData
-        formData.append('name', name)
-        formData.append('price', `${price}`)
-        formData.append('img', file)
-        formData.append('brandId', product.selectedBrand.id)
-        formData.append('typeId', product.selectedType.id)
-        formData.append('info', JSON.stringify(info))
+        try{
+            const formData = new FormData()
+            formData.append('name', name)
+            formData.append('country',country)
+            formData.append('price', `${price}`)
+            formData.append('img', file)
+            formData.append('amount', `${amount}`)
+            formData.append('brandId', product.selectedBrand.id)
+            formData.append('typeId', product.selectedType.id)
+            formData.append('legalId', product.selectedLegal.id)
+            formData.append('info', JSON.stringify(info))
 
-        createProduct(formData).then(data => props.onHide())
+            createProduct(formData).then(data => props.onHide())
+        }catch (e) {
+            alert(e)
+        }
+
     }
     return (
         <Modal
@@ -70,6 +81,14 @@ const CreateProduct = observer((props) => {
                         )}
                     </Dropdown.Menu>
                 </Dropdown>
+                <Dropdown className='mt-2 '>
+                    <Dropdown.Toggle>{product.selectedLegal.name || "Выберите производителя"}</Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        {product.legals.map(legal =>
+                            <Dropdown.Item onClick={() => product.setSelectedLegal(legal)} key={legal.id}>{legal.name}</Dropdown.Item>
+                        )}
+                    </Dropdown.Menu>
+                </Dropdown>
                 <Form.Control
                     value={name}
                     onChange={e => setName(e.target.value)}
@@ -84,9 +103,21 @@ const CreateProduct = observer((props) => {
                     type="number"
                 />
                 <Form.Control
+                    value={amount}
+                    onChange={e => setAmount(Number(e.target.value))}
+                    className="mt-2"
+                    placeholder="Введите количество"
+                />
+                <Form.Control
                     className="mt-2"
                     type='file'
                     onChange={selectFile}
+                />
+                <Form.Control
+                    value={country}
+                    onChange={e => setCountry(e.target.value)}
+                    className="mt-3"
+                    placeholder="Введите страну производства"
                 />
                 <hr/>
                 <Button
